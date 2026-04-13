@@ -15,12 +15,16 @@ BMAD-DragonBall là phiên bản tiên tiến nhất dựa trên cấu trúc BMA
 
 ## 🛠 Hướng dẫn Cài đặt (Installation)
 
-Bạn có thể tích hợp **toàn bộ hệ sinh thái này** vào project source code (*bất kể React, Nodejs, Python, hay Go...*) chỉ bằng một dòng lệnh Terminal đứng ở gốc dự án của bạn:
+**Quick Start**
+
+Prerequisites: `Node.js` v18+
+
+Chạy dòng lệnh CLI sau đứng ở gốc dự án của bạn (áp dụng cho mọi nền tảng tech stack):
 
 ```bash
-curl -sL https://raw.githubusercontent.com/YourName/bmad-dragonball-core/main/install.sh | bash
+npx bmad-dragonball install
 ```
-> *(Tập lệnh tự động tải `.agent`, `templates`, `scripts` về, setup file `config.yaml` và bảo toàn backup hệ thống nếu có).*
+> *(Tập lệnh CLI sẽ tự động tải các components `.agent`, `templates`, `scripts` về và phân bổ vào dự án).*
 
 ---
 

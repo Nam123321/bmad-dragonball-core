@@ -22,7 +22,7 @@ Prerequisites: `Node.js` v18+
 Chạy dòng lệnh CLI sau đứng ở gốc dự án của bạn (áp dụng cho mọi nền tảng tech stack):
 
 ```bash
-npx bmad-dragonball install
+npx github:Nam123321/bmad-dragonball-core install
 ```
 > *(Tập lệnh CLI sẽ tự động tải các components `.agent`, `templates`, `scripts` về và phân bổ vào dự án).*
 

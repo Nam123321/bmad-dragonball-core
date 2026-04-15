@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Brand Colors */
+    --color-brand-teal: rgb(58, 186, 180);
+    --color-brand-teal-hover: rgb(75, 195, 190);
+    --color-brand-cyan: rgb(120, 210, 206);
+    
+    /* Backgrounds */
+    --color-bg-navy: rgb(15, 23, 41);
+    --color-bg-navy-light: rgb(26, 39, 68);
+    --color-bg-light: rgb(250, 249, 246);
+    --color-bg-white: rgb(255, 255, 255);
+    
+    /* Typography Colors */
+    --color-text-pure: rgb(255, 255, 255);
+    --color-text-muted: rgb(115, 135, 174);
+    --color-text-dark: rgb(0, 0, 0);
+
+    /* Shadow definitions */
+    --shadow-sm: 0px 4px 6px -4px rgba(0,0,0,0.1);
+    --shadow-lg: 0px 25px 50px -12px rgba(0,0,0,0.4);
+  }
+
+  body {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--color-bg-navy);
+    color: var(--color-text-pure);
+    -webkit-font-smoothing: antialiased;
+  }
+}

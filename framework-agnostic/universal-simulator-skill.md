@@ -44,6 +44,11 @@ Follow these blocks sequentially.
 11. **Automation Workflow:** Check trigger logic, Idempotency, retry/failure handling.
 12. **Pure Prompt:** Check CO-STAR/RISEN framework, context injection, formatting constraints.
 13. **Wildcard:** Generate 3 custom criteria based on the deliverable's goal.
+
+**5. Delegation Check (For Multi-Agent Systems):**
+After classification, assess if YOUR current expertise matches the classified type.
+- If YES → Proceed to the next block.
+- If NO → Output: `⚠️ DELEGATION RECOMMENDED: This deliverable is classified as [Type]. My core competency is [Your Competency]. Recommend delegating this review to a [Suggested Expert Role] agent.` Then HALT unless the user explicitly overrides.
 </step-0-classification-and-adaptive-count>
 
 <mental-sandbox-scratchpad>
@@ -78,23 +83,35 @@ You must evaluate against the **6 Core Axes** (Completeness, Clarity, Edge Cases
 </ux-simulation-real-user>
 
 <hybrid-scoring-and-verdict>
-*Calculate the score out of 10 based on Completeness, Efficiency, The 8-Pillars, and REAL-USER logic. Then output the standard verdict outside the scratchpad.*
+*Calculate the score out of 10 based on the 6 Core Axes and REAL-USER logic. Then output the standard verdict outside the scratchpad.*
 
 ```markdown
 ## 📊 SIMULATION RESULTS (Round X/3)
 **Domain:** [Classified Type] | **UX Empathy Executed:** [Yes/No]
 
-### Scorecard
-| Axis | Score | Brief Note |
-|------|-------|------------|
-| Completeness & Domain | X/10 | ... |
-| 8-Pillar Structural Rigor | X/10 | ... |
-| REAL-USER UX Empathy | X/10 | [Or N/A] |
-| Guardrails & Failsafes| X/10 | ... |
+### Scorecard (The 6 Core Axes)
+| # | Axis | Score | Brief Note |
+|---|------|-------|------------|
+| 1 | Completeness | X/10 | Does it cover all requirements? |
+| 2 | Clarity | X/10 | Is instruction/logic unambiguous? |
+| 3 | Edge Cases (8-Pillars) | X/10 | How many pillars are satisfied? |
+| 4 | Efficiency | X/10 | Token cost, compute, redundancy? |
+| 5 | Scalability | X/10 | Will it hold at 10x volume? |
+| 6 | Output Quality | X/10 | Is the final output usable as-is? |
+| 7 | REAL-USER UX Empathy | X/10 | [Or N/A if non-user-facing] |
+
 **TOTAL AVERAGE: X.X / 10**
 
+### 🔄 Delta Tracker (Guardrail Enforcement)
+| Metric | Value |
+|--------|-------|
+| Previous Round Score | [N/A or X.X] |
+| Current Round Score | X.X |
+| **Delta** | **[Current - Prev]** |
+| Delta Lock Triggered? | [Yes: FORCE STOP / No: Continue] |
+
 ### 🔴 Bugs & Gaps
-1. [Severity: Critical/Medium/Minor] [Description of gap based on Pillars/UX] 
+1. [Severity: Critical/Medium/Minor] [Description] 
    → **Fix Protocol:** [Exact instructions to refactor/fix]
 
 ### 💡 Verdict
@@ -106,7 +123,7 @@ You must evaluate against the **6 Core Axes** (Completeness, Clarity, Edge Cases
 
 ## 🛠️ RESOLUTION & AUTO-FIX
 - If **PASS (≥8.5)**: System halts. Deliverable is ready.
-- If **FIXABLE (7.0 - 8.4)**: Present the Fix Checklist. 
+- If **FIXABLE (7.0 - 8.4)**: Present the Fix Checklist.
   *(If you are an agent equipped with coding/tool capabilities like `replace_file_content`, you MUST ask the user for permission to execute the fixes. If you have sub-agents, delegate to them.)*
 - If **REBUILD (< 7.0)**: Explain the fundamental structural failure. Do not attempt a patch.
-- If **FORCE STOP**: Stop all loops. Request human intervention.
+- If **FORCE STOP (Delta < 0.5 for 2 consecutive rounds)**: Stop all loops. Request human expert intervention. Do NOT attempt another round.

@@ -31,10 +31,24 @@ This skill acts as the final Quality Assurance (QA) bridge between Agent creatio
 
 ### STEP 0: BMAD CONTEXT & SUB-ROUTING
 1. **Context Load:** Read `{project-root}/_bmad/project-context.md`. What is the architectural goal of this project? (e.g., AI-Embedded, High Security, etc.).
-2. **Sub-Routing Assessment:** Classify the deliverable:
-   - *Logic/Code* → Focus: Syntax, Performance, Big-O, Security (Vegeta/Piccolo Domain)
-   - *Creative/Marketing* → Focus: Branding, Conversion, Storytelling (Hercule/Majin Buu Domain)
-   - *Prompt/AI* → Focus: Context windows, Hallucination risk (Songoku Domain)
+2. **Adaptive Test Case Count:** Mentally calculate complexity based on steps, branches, and actors.
+   - *Light (≤3 steps, 1 output):* 10 mental test cases.
+   - *Medium (4-6 steps, branches, or 2 actors):* 15-20 test cases.
+   - *Heavy (>6 steps, complex logic/multi-actor):* 25-30 test cases.
+3. **Determine Type & Specific Criteria:** Classify the deliverable into ONE of 13 types:
+   1. **Skill/Prompts (.md):** Check Trigger accuracy, backward compatibility. (Songoku Domain)
+   2. **Web App/UI:** Check responsive logic, error states. (Piccolo Domain)
+   3. **Plans/Roadmaps:** Check budget/time feasibility. (Bulma Domain)
+   4. **SOP/Excel:** Check dropdown validation, `IFERROR`.
+   5. **Emails:** Check tone consistency, CTA clarity.
+   6. **Chatbots:** Check KB separation, maximum token limits.
+   7. **Landing Pages:** Check Trust signals, conversion friction.
+   8. **Training:** Check progressive difficulty.
+   9. **Policy:** Check legal loopholes.
+   10. **Pitch Deck:** Check story arc, clear "Ask".
+   11. **Automation:** Check trigger logic, Idempotency. (Vegeta Domain)
+   12. **Pure Prompt:** Check CO-STAR/RISEN framework.
+   13. **Wildcard:** Generate 3 custom criteria.
 
 ### STEP 1: UX RELEVANCE GATING
 Before simulating, evaluate if REAL-USER empathy is needed:
@@ -42,31 +56,42 @@ Before simulating, evaluate if REAL-USER empathy is needed:
   - 0-2 (Internal Data, Backend API, Server Config)
   - 3-5 (UI Components, Sales SOPs, Chatbot Responses)
 - **Decision:** If Score ≥ 3, declare `"UX Simulation: REQUIRED"`. 
-  - *Note: If REQUIRED and you need deep UX empathy, you should call `{project-root}/.agent/skills/user-simulation-guardian/SKILL.md` in tandem.*
-  - If < 3, declare `"UX Simulation: SKIPPED (Reason)"`.
+  - *Note: If REQUIRED, you must evaluate against `{project-root}/.agent/skills/user-simulation-guardian/SKILL.md` in tandem.*
+  - If < 3, declare `"UX Simulation: SKIPPED"`.
 
 ### STEP 2: INNER MONOLOGUE MENTAL RUN
-Inside a `<scratchpad>` block, mentally generate 10-20 test cases.
+Inside a `<scratchpad>` block, mentally generate your adaptive test cases.
 Evaluate against:
-- **BMAD 8-Pillars:** Check Input Boundary, State Transitions, Concurrency, Data Integrity, Integration, Permissions, Infrastructure, Business Rules.
-- **Efficiency:** Are tokens or compute wasted?
-- **Clarity:** Is it overly complex? 
+- **BMAD 8-Pillars:** Check `{project-root}/.agent/skills/taxonomy-8-pillars.md`.
+- **The 6 Core Axes:** Completeness, Clarity, Edge Cases, Efficiency, Scalability, Output Quality.
 
-### STEP 3: SCORECARD
+### STEP 3: HYBRID SCORECARD & DELTA TRACKER
 *Calculate points internally out of 10. Output EXACTLY this template:*
 
 ```markdown
 ## ⚖️ QA SIMULATION GATE (Round X/3)
-**Domain:** [Domain from Step 0] | **UX relevance:** [Score/5 - REQUIRED/SKIPPED]
+**Domain:** [Classified Type 1-13] | **UX relevance:** [Score/5 - REQUIRED/SKIPPED]
 
-### Scorecard
-| Axis | Score | Brief Note |
-|------|-------|------------|
-| Context Alignment (Project Rules) | X/10 | ... |
-| Efficiency & Maintainability | X/10 | ... |
-| 8-Pillars Compliance | X/10 | ... |
-| UX Empathy (If Applicable) | X/10 | [Or N/A] |
-**TOTAL: X.X / 10**
+### Scorecard (The 6 Core Axes)
+| # | Axis | Score | Brief Note |
+|---|------|-------|------------|
+| 1 | Completeness | X/10 | Covers all requirements? |
+| 2 | Clarity | X/10 | Unambiguous logic/instructions? |
+| 3 | Edge Cases (8-Pillars) | X/10 | BMAD pillars satisfied? |
+| 4 | Efficiency | X/10 | Token/Compute redundancy? |
+| 5 | Scalability | X/10 | Valid at 10x scale? |
+| 6 | Output Quality | X/10 | Usable as-is? |
+| 7 | REAL-USER Empathy | X/10 | [Or N/A] |
+
+**TOTAL AVERAGE: X.X / 10**
+
+### 🔄 Delta Tracker (Guardrail Enforcement)
+| Metric | Value |
+|--------|-------|
+| Previous Round Score | [N/A or X.X] |
+| Current Round Score | X.X |
+| **Delta** | **[Current - Prev]** |
+| Delta Lock Triggered? | [Yes: FORCE STOP / No: Continue] |
 
 ### 🔴 Bugs & Gaps
 1. [Severity] [Description] → **Fix:** [Actionable Coding/Writing Suggestion]

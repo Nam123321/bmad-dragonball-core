@@ -314,10 +314,11 @@ description: 'Structured Bug Resolution Process (SBRP) v2.0 — 8-phase tiered w
     - Browser visual verification (nếu UI bug):
       - Load SKILL: `@{project-root}/.agent/skills/browser-visual-verification/SKILL.md`
 
-19. **Code review (adversarial):**
-    - Tự review với mindset "tìm lỗi"
-    - Check: fix có tạo bug mới không?
-    - Check: fix có violate DIG/ECG rules không?
+19. **QA Simulator Guardian Audit (adversarial):**
+    - Load SKILL: `@{project-root}/.agent/skills/qa-simulator-guardian.md`
+    - Dùng Simulator chấm điểm bản Code Fix đã sửa ở Phase 5.
+    - Bắt buộc phải có **Pass Score ≥ 8.5/10**. Nếu trả về FIXABLE, Agent tự động xin duyệt quyền sửa và apply fix.
+    - Xác minh: Fix có tạo bug mới không? Có violate luật 8-Pillars (ECG) hoặc Data Integrity (DIG) không?
 
 ---
 

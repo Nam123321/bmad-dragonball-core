@@ -50,10 +50,25 @@ Before jumping into user simulation, evaluate if REAL-USER empathy is needed:
 
 ### STEP 2: MENTAL RUN & INNER MONOLOGUE
 **YOU MUST NOT OUTPUT THIS RUN DIRECTLY.**
-Do all reasoning inside a `<scratchpad>` XML block:
-- **QA Analysis:** Walk through the artifact based on the domain focus (from Step 0).
-- **UX Empathy (If REQUIRED in Step 1):** Think through Reality Context, Emotion, Action Patterns, Unpredictable behavior, and Language semantics of the end user.
-- **Mental Sandbox:** Imagine running 10-20 test cases (happy path, edge cases, stress tests). Document failures.
+Do all reasoning inside a `<scratchpad>` XML block. Conduct 10-20 mental test cases.
+
+**A. Structural Edge Case Check (The 8-Pillars):**
+If evaluating technical logic, mentally verify against these 8 pillars:
+1. **Input Boundary:** XSS, SQLi, nulls, extreme sizes, malformed data.
+2. **State Transition:** Race conditions, impossible states, orphaned records.
+3. **Concurrency:** Multiple users acting at exactly the same millisecond.
+4. **Data Integrity:** Orphaned records, cascade deletes, precision loss.
+5. **Integration:** What if the 3rd party API times out, sends a 500, or changes payload?
+6. **Security:** Authorization bypassing, tenant isolation leaks.
+7. **Infrastructure:** Memory leaks, database connection exhaustion.
+8. **Business Rules:** Edge logic contradiction, pricing loopholes.
+
+**B. UX Simulation Check (REAL-USER empathy - only if UX Score ≥ 3):**
+If evaluating user-facing output, step into the persona and simulate:
+1. **Reality Context:** Can they use this with one hand on a bumpy train? Is the screen glaring?
+2. **Emotion:** Are they frustrated? Rushed? Anxious about clicking "Submit"?
+3. **Action Patterns:** What if they click "Back" mid-process? What if they double-tap rapidly?
+4. **Language:** Is the output full of jargon? Is the CTA confusing?
 
 ### STEP 3: HYBRID SCORING & SUMMARY
 *Calculate a score out of 10 inside the scratchpad. Then produce this exact format:*

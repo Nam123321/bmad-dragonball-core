@@ -73,7 +73,7 @@ For EACH category below, the agent MUST:
 
 **Stitch Context Template (inject into EVERY screen generation):**
 ```
-Product: Distro — AI-Embedded Light DMS for Vietnamese distributors
+Product: Distro — {project_name} for Vietnamese distributors
 Portal: {portal_name}
 Design Direction: {visual_direction_from_step_00}
 Style: Glassmorphism, {color_mode}, Plus Jakarta Sans / Manrope

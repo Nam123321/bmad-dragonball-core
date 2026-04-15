@@ -44,7 +44,7 @@ cgc index --force .
 ```
 
 > [!WARNING]
-> **IGNORE_DIRS MUST be comprehensive!** Lần index đầu tiên trên Light DMS đã index cả `.next/` → tạo 80,000+ garbage nodes. Chạy `scripts/sync-ignore-dirs.sh` TRƯỚC khi index.
+> **IGNORE_DIRS MUST be comprehensive!** Lần index đầu tiên trên {project_name} đã index cả `.next/` → tạo 80,000+ garbage nodes. Chạy `scripts/sync-ignore-dirs.sh` TRƯỚC khi index.
 
 Kiểm tra IGNORE_DIRS ở 3 nơi — TẤT CẢ phải sync:
 1. `mcp.json` → `env.IGNORE_DIRS`

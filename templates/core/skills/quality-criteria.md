@@ -12,17 +12,17 @@ Every edge case MUST pass ALL 6 criteria to be considered well-defined:
 ### 1. ✅ Specific Trigger
 - **Describes exactly** what input/action/condition causes the edge case
 - ❌ Bad: "Something goes wrong with orders"
-- ✅ Good: "User submits order with qty=0 for a combo item while promotion is active"
+- ✅ Good: "User submits form with qty=0 for a bundled item while a promotion is active"
 
 ### 2. ✅ Observable Impact  
 - **Clear, measurable consequence** of the edge case occurring
 - ❌ Bad: "System might behave unexpectedly"
-- ✅ Good: "Order saved with ₫0 total, inventory deducted but revenue = 0, financial report distorted"
+- ✅ Good: "Record saved with $0 total, inventory deducted but revenue = 0, financial report distorted"
 
 ### 3. ✅ Reproducible
 - **Step-by-step** reproduction path or scenario description
 - ❌ Bad: "Sometimes it breaks"
-- ✅ Good: "Steps: 1) Open NVBH catalog 2) Add combo T-01 3) Set qty to 0 4) Click 'Đặt hàng'"
+- ✅ Good: "Steps: 1) Open product catalog 2) Add bundle B-01 3) Set qty to 0 4) Click 'Submit'"
 
 ### 4. ✅ Scored (FMEA)
 - Has **RPN score** (Severity × Probability × Detectability)

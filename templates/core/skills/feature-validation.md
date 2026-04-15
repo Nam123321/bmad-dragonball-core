@@ -15,7 +15,7 @@
 ### Step 2: Business Context Verified
 ```
 □ PASS/FAIL: Business context (R-dimension) explicitly documented
-  - Ngành hàng identified
+  - Industry/domain identified
   - B2B/B2C/hybrid channel identified
   - Per-portal user type identified
 □ PASS/FAIL: Persona selection matches portal being designed
@@ -26,15 +26,15 @@
 □ PASS/FAIL: At least 1 non-linear user path identified and designed
   Examples: jump between pages, abandon + return, interrupt + resume
 □ PASS/FAIL: Copy-paste path designed (not just click/type path)
-  - Zalo message paste for NVBH/CTV
-  - Recipe paste for Consumer
+  - Chat/email paste for field agents
+  - Clipboard paste for end users
 □ PASS/FAIL: Voice/shortcut path considered (if applicable)
 ```
 
 ### Step 4: Repeat & Reorder
 ```
 □ PASS/FAIL: "Reorder/repeat" path designed for applicable features
-□ PASS/N/A: "Lấy lại đơn cũ" flow exists for order-related features
+□ PASS/N/A: "Redo last action" flow exists for transaction-related features
 ```
 
 ### Step 5: Edge Behaviors
@@ -47,18 +47,18 @@
 
 ### Step 6: Language & Accessibility
 ```
-□ PASS/FAIL: Vietnamese abbreviations handled (HH, NC, NM, CK)
-□ PASS/FAIL: Emoji in input handled gracefully (🍜, ❌, ✅)
-□ PASS/FAIL: Regional language variants considered (trái/quả)
-□ PASS/FAIL: Vague input has clarification flow ("vài thùng" → "bao nhiêu?")
+□ PASS/FAIL: Domain-specific abbreviations handled
+□ PASS/FAIL: Emoji in input handled gracefully
+□ PASS/FAIL: Regional language/dialect variants considered
+□ PASS/FAIL: Vague input has clarification flow ("a few" → "how many?")
 ```
 
-### Step 7: Industry-Specific (if applicable)
+### Step 7: Domain-Specific (if applicable)
 ```
-□ PASS/N/A: Meal planning intent handled (for food industry)
-□ PASS/N/A: Diet/restriction handling (keto, chay, allergen)
+□ PASS/N/A: Domain-specific workflow intent handled
+□ PASS/N/A: Constraint/restriction handling (permissions, quotas, limits)
 □ PASS/N/A: Budget-aware suggestions (for consumer features)
-□ PASS/N/A: Seasonal product awareness (for fresh food)
+□ PASS/N/A: Seasonal/time-sensitive awareness (if relevant)
 ```
 
 ## Gate Result

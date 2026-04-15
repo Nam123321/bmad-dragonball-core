@@ -1,5 +1,5 @@
 ---
-description: 'Run 1st-Principle user simulation on a feature or UI spec using the REAL-USER Protocol with DMS-specific personas and scenarios.'
+description: 'Run 1st-Principle user simulation on a feature or UI spec using the REAL-USER Protocol with project-specific personas and scenarios.'
 ---
 
 # /simulate-user — 1st-Principle User Simulation
@@ -17,17 +17,17 @@ description: 'Run 1st-Principle user simulation on a feature or UI spec using th
 1. Load SKILL: `{project-root}/.agent/skills/user-simulation-guardian/SKILL.md`
 2. Identify the **feature/UI spec** to simulate:
    - Read the story file or UI spec being reviewed
-   - Identify which portals are involved (Webstore, Sales Web, Admin Portal)
+   - Identify which portals/interfaces are involved (e.g., Customer Portal, Staff App, Admin Dashboard)
 
 3. Select **personas** (MINIMUM 3):
    - MUST include at least 1 persona per portal involved
-   - For Webstore → MUST include P1 (Chủ tiệm) AND/OR P5 (Consumer)
-   - For Sales Web → MUST include P2 (NVBH — pick relevant sub-type)
-   - For Admin Portal → MUST include P3 (Admin) AND/OR P4 (Supervisor)
+   - For Customer-facing Portal → MUST include End Customer AND/OR Business Client
+   - For Staff/Agent App → MUST include Field Agent or Internal Operator
+   - For Admin Dashboard → MUST include Admin AND/OR Supervisor
    
 4. Select **scenarios** (MINIMUM 2):
-   - MUST include at least 1 stress scenario (rush-hour OR low-connectivity)
-   - If food industry features → MUST include meal-planning scenario
+   - MUST include at least 1 stress scenario (peak-traffic OR low-connectivity)
+   - If domain-specific workflows exist → MUST include relevant domain scenario
 
 5. Load selected persona and scenario files from:
    - `{project-root}/.agent/skills/user-simulation-guardian/personas/`
@@ -57,13 +57,13 @@ For EACH selected persona × scenario combination:
    - 💡 Specific improvement suggestion
 
 3. **Focus areas based on persona:**
-   - **Chủ tiệm (P1):** Reorder flow, viết tắt, 3G performance
-   - **NVBH-Offline (P2a):** Multitask, route-based, voice
-   - **CTV-Online (P2b):** Batch order, livestream, copy-paste
-   - **MLM (P2c):** Context-switch sell↔manage, commission check
-   - **Admin (P3):** Form fatigue, keyboard nav, session timeout
-   - **Supervisor (P4):** Quick glance, batch approve, anomaly drill-down
-   - **Consumer (P5):** Meal planning, diet, budget, recipe-to-order
+   - **Business Client (P1):** Repeat orders, shortcuts, mobile performance
+   - **Field Agent - Offline (P2a):** Multitask, route-based, voice input
+   - **Field Agent - Online (P2b):** Batch operations, real-time sync, copy-paste
+   - **Referral Agent (P2c):** Context-switch between selling & managing, commission tracking
+   - **Admin (P3):** Form fatigue, keyboard navigation, session timeout
+   - **Supervisor (P4):** Quick glance dashboards, batch approvals, anomaly drill-down
+   - **End Consumer (P5):** Discovery, search, personalization, budget awareness
 
 ---
 

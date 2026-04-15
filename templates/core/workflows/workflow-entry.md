@@ -45,11 +45,11 @@ IF NOT EXISTS → ❌ BLOCK with message:
 ```
 1. Load SKILL: {project-root}/.agent/skills/user-simulation-guardian/SKILL.md
 2. Identify which personas are relevant for this story's portal:
-   - Webstore → P1 (Chủ tiệm) + P5 (Consumer)
-   - Sales Web/App → P2 (NVBH — pick relevant sub-type)
-   - Admin Portal → P3 (Admin) + P4 (Supervisor)
+   - Customer Portal → P1 (Business Client) + P5 (End Consumer)
+   - Staff App → P2 (Field Agent — pick relevant sub-type)
+   - Admin Dashboard → P3 (Admin) + P4 (Supervisor)
 3. Run REAL-USER Protocol (8 dimensions) for MIN 3 personas
-4. Apply scenario overlays: rush-hour, low-connectivity, first-time-user (pick ≥2)
+4. Apply scenario overlays: peak-traffic, low-connectivity, first-time-user (pick ≥2)
 5. Check: feature-validation checklist ({project-root}/.agent/skills/user-simulation-guardian/checklists/feature-validation.md)
 
 IF PASS → ✅ Proceed — include simulation findings in UI spec

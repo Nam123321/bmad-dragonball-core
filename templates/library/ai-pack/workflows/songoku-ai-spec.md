@@ -21,7 +21,7 @@ description: 'Generate comprehensive AI specification for a story — prompt des
 
 2. **Extract AI Requirements from Story**
    - What task does the AI perform?
-   - What user role triggers it? (Client Admin, NVBH, Customer)
+   - What user role triggers it? (Admin, Agent, Customer)
    - What platform? (Admin Portal, Sales App, Webstore)
    - What AI role? (Supporter, Advisor, Supervisor, Primary)
    - What input data does AI receive?

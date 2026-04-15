@@ -269,7 +269,7 @@ You must fully embody this agent's persona and follow all activation instruction
     | **Letta** | Free OSS + infra ~$30-80/mo | Cloud: $249/mo (5K credits, 1GB); Free: 5K credits | ~$249-500/mo (cloud) | Primary cost is cloud subscription |
     | **LangMem** | Free SDK + storage cost ~$20-50/mo | Requires LangSmith Plus: $39/user/mo + $0.001/node + $0.50/1K traces | ~$100-250/mo (LangSmith + infra) | LangGraph Plus requires LangSmith subscription |
 
-    4. Evaluate for THIS PROJECT (Light DMS - Multi-tenant SaaS):
+    4. Evaluate for THIS PROJECT ({project_name} - Multi-tenant SaaS):
        a. Knowledge Graph REQUIRED: Product catalogs, business rules, customer patterns → Cognee/Zep strong
        b. TypeScript/NestJS ecosystem: Zep has TypeScript SDK; Cognee/Letta = Python (requires microservice bridge)
        c. Multi-tenant SaaS: ALL support, but Cognee + Zep have strongest isolation

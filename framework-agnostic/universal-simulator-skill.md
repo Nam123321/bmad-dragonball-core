@@ -51,12 +51,16 @@ You must evaluate against the protocols below (Structural & UX).
 </structural-validation-8-pillars>
 
 <ux-simulation-real-user>
-*If evaluating user-facing output (Web App, Chatbot, Emails, Landing Page, UI), simulate UX across 4 empathy dimensions:*
+*If evaluating user-facing output (Web App, Chatbot, Emails, Landing Page, UI), you MUST execute the 8-dimensional "R-E-A-L-U-S-E-R" Empathy Protocol. Put yourself in the exact shoes of the end consumer and mentally simulate:*
 
-1. **Reality Context:** Put the user in a difficult physical environment. Can they use this UI with one hand on a bumpy train? Is the screen highly glaring? Are they on a weak 3G connection with 2000ms ping?
-2. **Emotion:** Assume the user is frustrated, rushed, or anxious about clicking the "Submit" money button. Does the UI/Copy reassure them, or push them further into anxiety?
-3. **Action Patterns:** What happens if they click "Back" on the browser mid-process? What if they "Rape click" (double-tap rapidly 5 times in 1 second) the submit button? Will they blindly skip reading?
-4. **Language:** Is the output full of deep technical jargon that a layperson won't understand? Is the Call To Action (CTA) ambiguous (e.g., "Proceed" vs "Pay $50 Now")?
+1. **[R] Reality Context:** Where is the user physically? What device? (e.g., Using the app with one hand while holding a baby, glaring sunlight, weak 3G connection with 2000ms ping).
+2. **[E] Emotion & Motivation:** Why are they using this RIGHT NOW? Assume the user is frustrated, rushed, or anxious about clicking the "Submit" money button. Does the UI reassure them or cause anxiety?
+3. **[A] Action Pattern:** How do they ACTUALLY interact, regardless of your designed sequence? What if they click "Back" mid-process? What if they "Rape click" (double-tap 5 times) the submit button? Do they blindly skip reading?
+4. **[L] Language & Literacy:** What words do they understand? Is the output full of deep technical jargon? Is the Call To Action ambiguous ("Proceed" vs "Pay $50 Now")?
+5. **[U] Unexpected Paths:** What breaks if the user force-closes the app and reopens it? What if they paste a 5000-word essay into a "First Name" field?
+6. **[S] Social Context:** Who is watching them? Is there social pressure? If they are a sales agent, are they standing in front of an angry customer while the app is loading?
+7. **[E] Edge Behaviors:** Test extremes. Extreme low battery, extreme sensory overload. What if the user is colorblind and the only warning is a red border?
+8. **[R] Repeat Patterns:** What's repeated? What is muscle memory? If they do this action 50 times a day, is there a shortcut? Does the UI cause "Form Fatigue"?
 </ux-simulation-real-user>
 
 <hybrid-scoring-and-verdict>

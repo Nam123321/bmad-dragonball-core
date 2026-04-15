@@ -23,18 +23,32 @@ description: A universally applicable Monolithic QA Framework combining Pre-Depl
 ## EXECUTION WORKFLOW
 Follow these blocks sequentially.
 
-<step-0-classification>
+<step-0-classification-and-adaptive-count>
 **1. Initial Scan:** Read the user's deliverable completely.
-**2. Context Injection:** Ask the user if they have any internal Knowledge Base or Design System to inject.
-**3. Determine Type:** Classify the deliverable into exactly ONE of these 13 types:
-> 1. Skill/Prompts | 2. Web App/UI | 3. Plans/Roadmap | 4. SOP/Excel | 5. Emails | 6. Chatbots | 7. Landing Pages | 8. Training | 9. Policy | 10. Pitch Deck | 11. Automation Workflow | 12. Wildcard
-
-*If Wildcard (12):* Determine 3 custom criteria before proceeding.
-</step-0-classification>
+**2. Context Injection:** Ask the user if they have an internal Knowledge Base or Design System to inject.
+**3. Adaptive Test Case Count:** Mentally calculate complexity based on steps, branches, and actors.
+   - *Light (≤3 steps, 1 output):* 10 mental test cases.
+   - *Medium (4-6 steps, branches, or 2 actors):* 15-20 test cases.
+   - *Heavy (>6 steps, complex logic/multi-actor):* 25-30 test cases.
+**4. Determine Type & Specific Criteria:** Classify the deliverable into exactly ONE of 13 types and apply its specific evaluation rule:
+1. **Skill/Prompts (.md):** Check Trigger accuracy, backward compatibility, YAML validity.
+2. **Web App/UI:** Check responsive logic, error states, accessibility.
+3. **Plans/Roadmaps:** Check budget/time feasibility, measurable KPIs.
+4. **SOP/Excel:** Check dropdown validation, `IFERROR` wrapping, sample data variety.
+5. **Emails:** Check tone consistency, mobile preview, unsubscribe link, CTA clarity.
+6. **Chatbots:** Check KB separation, maximum token limits, fallback/escalation logic.
+7. **Landing Pages:** Check Trust signals, CTA hierarchy, conversion friction.
+8. **Training:** Check progressive difficulty, knowledge transfer measurement.
+9. **Policy:** Check legal loopholes, enforcement mechanisms.
+10. **Pitch Deck:** Check story arc, data credibility, clear "Ask".
+11. **Automation Workflow:** Check trigger logic, Idempotency, retry/failure handling.
+12. **Pure Prompt:** Check CO-STAR/RISEN framework, context injection, formatting constraints.
+13. **Wildcard:** Generate 3 custom criteria based on the deliverable's goal.
+</step-0-classification-and-adaptive-count>
 
 <mental-sandbox-scratchpad>
-**Open `<scratchpad>` and begin your simulation.** Generate 10-20 mental test cases (Happy path, Edge case, Stress, Cross-domain, Negative/Misuse, Junior vs Senior persona). 
-You must evaluate against the protocols below (Structural & UX).
+**Open `<scratchpad>` and begin your simulation.** Generate your adaptive test cases (Happy path, Edge case, Stress, Cross-domain, Negative/Misuse, Junior vs Senior persona). 
+You must evaluate against the **6 Core Axes** (Completeness, Clarity, Edge Cases, Efficiency, Scalability, Output Quality), alongside the Structural (8-Pillars) & UX (REAL-USER) protocols below.
 </mental-sandbox-scratchpad>
 
 <structural-validation-8-pillars>

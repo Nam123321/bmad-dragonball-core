@@ -1,99 +1,94 @@
 ---
 name: universal-simulator-skill
-description: A universally applicable framework combining Pre-Deployment Quality Assurance and UX Simulation. Agnostic to project structure, allowing custom context injection. Uses Inner Monologue for reasoning and strict loop validation.
+description: A universally applicable Monolithic QA Framework combining Pre-Deployment Quality Assurance and UX Simulation. Agnostic to project structure, allowing custom context injection. Uses Inner Monologue for reasoning and strict loop validation.
 ---
 
 # 🌐 UNIVERSAL SIMULATOR SKILL (Hybrid QA & UX)
 
-## 🎯 PURPOSE
-This skill provides a 2-in-1 simulation gate for ANY project or architecture. It mentally evaluates deliverables (Code, UI, Prompts, Documents) against Structural Quality and User Experience (REAL-USER empathy). It prevents endless AI loops via strict constraints while operating perfectly without needing autonomous code execution tools.
+<skill-metadata>
+- **Version:** 2.0 (Monolithic)
+- **Purpose:** A self-contained, micro-encyclopedia framework to thoroughly simulate, test, and evaluate ANY deliverable (Code, UI, Prompts, Documents, Plans).
+- **Core Engine:** Fuses the 13-Type Classification, 8-Pillars Structural Guard, and REAL-USER UX Empathy into a single execution stream.
+- **Guardrails:** Operates strictly via mental sandbox (`<scratchpad>`). Max 3 Rounds. Strict delta-lock to prevent hallucination looping.
+</skill-metadata>
+
+## 🛑 STRICT EXECUTION GUARDRAILS
+1. **Never print your mental test cases to the user.** Keep all reasoning inside `<scratchpad>`.
+2. **Max 3 Rounds.** If it reaches Round 3 and fails, issue a FORCE STOP. 
+3. **Pass Score ≥ 8.5/10.** Anything lower is FIXABLE or REBUILD.
+4. **Delta Lock:** If the score changes by `< 0.5` after two fixes, you MUST stop and suggest expert intervention.
 
 ---
 
-## 🛑 GUARDRAILS (STRICT ENFORCEMENT)
+## EXECUTION WORKFLOW
+Follow these blocks sequentially.
 
-| Rule | Limitation | Rationale |
-|------|------------|-----------|
-| **Round Limit** | Max 3 Simulation Rounds | Diminishing returns after round 3. Stops hallucination loops. |
-| **Pass Score** | ≥ 8.5 / 10 | Must achieve high threshold to proceed. |
-| **Delta Lock** | `< 0.5` improvement in 2 rounds | If no improvement, stop and request external expert review. |
-| **Reasoning Method** | Hidden `<scratchpad>` | Mentally analyze without blasting the user with huge logs. |
-| **Silent QA** | Minimal Output | Only output summary scorecard, bug list, and fix instructions. |
+<step-0-classification>
+**1. Initial Scan:** Read the user's deliverable completely.
+**2. Context Injection:** Ask the user if they have any internal Knowledge Base or Design System to inject.
+**3. Determine Type:** Classify the deliverable into exactly ONE of these 13 types:
+> 1. Skill/Prompts | 2. Web App/UI | 3. Plans/Roadmap | 4. SOP/Excel | 5. Emails | 6. Chatbots | 7. Landing Pages | 8. Training | 9. Policy | 10. Pitch Deck | 11. Automation Workflow | 12. Wildcard
 
----
+*If Wildcard (12):* Determine 3 custom criteria before proceeding.
+</step-0-classification>
 
-## 🛡️ AGENT INTEGRATION GUIDELINES (For the Host AI)
-*Read this before executing this skill on a deliverable.*
-- **To Auto-Fix:** If you are an agent equipped with filesystem/MCP tools (like `replace_file_content`, `git`, or `bash`), **DO NOT** just output a checklist. Once the user approves the verdict, use your tools to physically apply the fixes to the target files.
-- **To Delegate:** If you have sub-agents (e.g., Code Gen Agent, QA Agent), use the Sub-Routing step to delegate the fix to them.
-- **Text-Only Mode:** If you do not have tools, output copy-paste blocks for the user.
+<mental-sandbox-scratchpad>
+**Open `<scratchpad>` and begin your simulation.** Generate 10-20 mental test cases (Happy path, Edge case, Stress, Cross-domain, Negative/Misuse, Junior vs Senior persona). 
+You must evaluate against the protocols below (Structural & UX).
+</mental-sandbox-scratchpad>
 
----
+<structural-validation-8-pillars>
+*Inside the scratchpad, mentally run the deliverable through these 8 rigorous pillars (Crucial for Code, Automations, Plans, Data):*
 
-## 🛠️ THE 5-STEP FRAMEWORK
+1. **Input Boundary:** Does it handle empty strings, NULL objects, negative numbers, extreme character limits (10MB text), non-breaking spaces, or malicious injection payloads (XSS, SQLi)?
+2. **State Transition:** Are there race conditions? What happens if the process is aborted halfway? Are impossible states reachable? Will it leave orphaned un-garbage-collected records?
+3. **Concurrency:** Imagine 10,000 users performing the exact same action in the same millisecond. Are there deadlocks? Idempotency violations?
+4. **Data Integrity:** What happens if a parent record is deleted (Cascade Delete)? Will precision be lost (e.g., floating point vs Decimal for money)? 
+5. **Integration:** What if the 3rd party API times out, sends a 500 error, or unexpectedly changes its payload schema? Is there a fallback or exponential backoff?
+6. **Security:** Can a user change the ID in the URL to see another tenant's data (Tenant Isolation Leak)? Can authorization be bypassed?
+7. **Infrastructure:** Does this cause an N+1 Query problem? Is there a memory leak if ran 1,000,000 times? Will it exhaust database connections?
+8. **Business Rules:** Does this contradict another core feature? Are there loopholes allowing overlapping promotional discounts?
+</structural-validation-8-pillars>
 
-### STEP 0: CLASSIFICATION & SUB-ROUTING
-1. **Load Context:** Review any user-provided knowledge bases, design systems, or context rules.
-2. **Sub-Routing Assessment:** Classify the deliverable into one of the following main domains to dictate the core QA focus:
-   - *Logic/Code* → Focus: Syntax, Performance, Big-O, Security
-   - *Process/SOPs* → Focus: Loop-holes, Dead-ends, Redundancies
-   - *Creative/Marketing* → Focus: Branding, Conversion, Storytelling
-   - *Prompt/AI Spec* → Focus: Context-window, Instruction clarity, Hallucination-risk
-   *(Host Agent Note: If you have a specialized expert agent for this domain, pause and delegate the deliverable to them. If not, proceed yourself).*
+<ux-simulation-real-user>
+*If evaluating user-facing output (Web App, Chatbot, Emails, Landing Page, UI), simulate UX across 4 empathy dimensions:*
 
-### STEP 1: UX SIMULATION GATING (Relevance Score)
-Before jumping into user simulation, evaluate if REAL-USER empathy is needed:
-- **Rate UX Relevance (0 to 5):** 
-  - 0-2 (Internal Database, Backend Script, API)
-  - 3-5 (UI, Chatbot, Customer Process, Sales Deck)
-- **Decision:** If Score ≥ 3, declare `"UX Simulation: REQUIRED"`. If < 3, declare `"UX Simulation: SKIPPED"` and provide a 1-sentence reason (e.g., "This is a backend cron-job script with no human interface").
+1. **Reality Context:** Put the user in a difficult physical environment. Can they use this UI with one hand on a bumpy train? Is the screen highly glaring? Are they on a weak 3G connection with 2000ms ping?
+2. **Emotion:** Assume the user is frustrated, rushed, or anxious about clicking the "Submit" money button. Does the UI/Copy reassure them, or push them further into anxiety?
+3. **Action Patterns:** What happens if they click "Back" on the browser mid-process? What if they "Rape click" (double-tap rapidly 5 times in 1 second) the submit button? Will they blindly skip reading?
+4. **Language:** Is the output full of deep technical jargon that a layperson won't understand? Is the Call To Action (CTA) ambiguous (e.g., "Proceed" vs "Pay $50 Now")?
+</ux-simulation-real-user>
 
-### STEP 2: MENTAL RUN & INNER MONOLOGUE
-**YOU MUST NOT OUTPUT THIS RUN DIRECTLY.**
-Do all reasoning inside a `<scratchpad>` XML block. Conduct 10-20 mental test cases.
-
-**A. Structural Edge Case Check (The 8-Pillars):**
-If evaluating technical logic, mentally verify against these 8 pillars:
-1. **Input Boundary:** XSS, SQLi, nulls, extreme sizes, malformed data.
-2. **State Transition:** Race conditions, impossible states, orphaned records.
-3. **Concurrency:** Multiple users acting at exactly the same millisecond.
-4. **Data Integrity:** Orphaned records, cascade deletes, precision loss.
-5. **Integration:** What if the 3rd party API times out, sends a 500, or changes payload?
-6. **Security:** Authorization bypassing, tenant isolation leaks.
-7. **Infrastructure:** Memory leaks, database connection exhaustion.
-8. **Business Rules:** Edge logic contradiction, pricing loopholes.
-
-**B. UX Simulation Check (REAL-USER empathy - only if UX Score ≥ 3):**
-If evaluating user-facing output, step into the persona and simulate:
-1. **Reality Context:** Can they use this with one hand on a bumpy train? Is the screen glaring?
-2. **Emotion:** Are they frustrated? Rushed? Anxious about clicking "Submit"?
-3. **Action Patterns:** What if they click "Back" mid-process? What if they double-tap rapidly?
-4. **Language:** Is the output full of jargon? Is the CTA confusing?
-
-### STEP 3: HYBRID SCORING & SUMMARY
-*Calculate a score out of 10 inside the scratchpad. Then produce this exact format:*
+<hybrid-scoring-and-verdict>
+*Calculate the score out of 10 based on Completeness, Efficiency, The 8-Pillars, and REAL-USER logic. Then output the standard verdict outside the scratchpad.*
 
 ```markdown
 ## 📊 SIMULATION RESULTS (Round X/3)
-**Domain:** [Domain from Step 0] | **UX relevance:** [Score/5 - REQUIRED/SKIPPED (Reason)]
+**Domain:** [Classified Type] | **UX Empathy Executed:** [Yes/No]
 
 ### Scorecard
 | Axis | Score | Brief Note |
 |------|-------|------------|
-| Completeness & Domain Accuracy | X/10 | ... |
-| Efficiency & Scalability | X/10 | ... |
-| UX & Human Error (If Applicable)| X/10 | [Or N/A] |
-| Edge Cases & Fail-safes | X/10 | ... |
-**TOTAL: X.X / 10**
+| Completeness & Domain | X/10 | ... |
+| 8-Pillar Structural Rigor | X/10 | ... |
+| REAL-USER UX Empathy | X/10 | [Or N/A] |
+| Guardrails & Failsafes| X/10 | ... |
+**TOTAL AVERAGE: X.X / 10**
 
 ### 🔴 Bugs & Gaps
-1. [Severity] [Description] → **Fix:** [Actionable Suggestion]
+1. [Severity: Critical/Medium/Minor] [Description of gap based on Pillars/UX] 
+   → **Fix Protocol:** [Exact instructions to refactor/fix]
 
 ### 💡 Verdict
 - [PASS / FIXABLE / REBUILD / FORCE STOP] 
 ```
+</hybrid-scoring-and-verdict>
 
-### STEP 4: RESOLUTION INSTRUCTIONS
-- If **PASS**: Output success and stop.
-- If **FIXABLE**: Produce the Fix Checklist. *(Host Agent: Await user approval, then execute Auto-Fix if equipped).*
-- If **REBUILD**: Provide a new Skeleton architecture and wait for user approval.
+---
+
+## 🛠️ RESOLUTION & AUTO-FIX
+- If **PASS (≥8.5)**: System halts. Deliverable is ready.
+- If **FIXABLE (7.0 - 8.4)**: Present the Fix Checklist. 
+  *(If you are an agent equipped with coding/tool capabilities like `replace_file_content`, you MUST ask the user for permission to execute the fixes. If you have sub-agents, delegate to them.)*
+- If **REBUILD (< 7.0)**: Explain the fundamental structural failure. Do not attempt a patch.
+- If **FORCE STOP**: Stop all loops. Request human intervention.
